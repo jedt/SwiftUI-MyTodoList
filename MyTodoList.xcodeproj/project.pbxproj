@@ -7,19 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843473AE2C7DA9560063CB68 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843473AD2C7DA9560063CB68 /* TodoItem.swift */; };
+		843473B52C7DB2CE0063CB68 /* GRDBQuery in Frameworks */ = {isa = PBXBuildFile; productRef = 843473B42C7DB2CE0063CB68 /* GRDBQuery */; };
+		843473B72C7DB4D00063CB68 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843473B62C7DB4D00063CB68 /* AppView.swift */; };
+		843473BA2C7DBA340063CB68 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843473B92C7DBA340063CB68 /* AppDatabase.swift */; };
+		843473BC2C7DBE620063CB68 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843473BB2C7DBE620063CB68 /* Persistence.swift */; };
 		84B9C9F42C7C84DE00D33773 /* MyTodoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C9F32C7C84DE00D33773 /* MyTodoListApp.swift */; };
 		84B9C9F62C7C84DE00D33773 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C9F52C7C84DE00D33773 /* ContentView.swift */; };
 		84B9C9F82C7C84DF00D33773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B9C9F72C7C84DF00D33773 /* Assets.xcassets */; };
 		84B9C9FB2C7C84DF00D33773 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B9C9FA2C7C84DF00D33773 /* Preview Assets.xcassets */; };
+		84B9CA032C7C9A2C00D33773 /* ItemNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9CA022C7C9A2C00D33773 /* ItemNew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		843473AD2C7DA9560063CB68 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		843473B62C7DB4D00063CB68 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		843473B92C7DBA340063CB68 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		843473BB2C7DBE620063CB68 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		84B9C9F02C7C84DE00D33773 /* MyTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B9C9F32C7C84DE00D33773 /* MyTodoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodoListApp.swift; sourceTree = "<group>"; };
 		84B9C9F52C7C84DE00D33773 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84B9C9F72C7C84DF00D33773 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B9C9FA2C7C84DF00D33773 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		84B9C9FC2C7C84DF00D33773 /* MyTodoList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyTodoList.entitlements; sourceTree = "<group>"; };
+		84B9CA022C7C9A2C00D33773 /* ItemNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,12 +38,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843473B52C7DB2CE0063CB68 /* GRDBQuery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843473B22C7DA9D30063CB68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				843473AD2C7DA9560063CB68 /* TodoItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		843473B82C7DB5E70063CB68 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84B9CA022C7C9A2C00D33773 /* ItemNew.swift */,
+				84B9C9F52C7C84DE00D33773 /* ContentView.swift */,
+				843473B62C7DB4D00063CB68 /* AppView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		84B9C9E72C7C84DE00D33773 = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +82,14 @@
 		84B9C9F22C7C84DE00D33773 /* MyTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				843473B82C7DB5E70063CB68 /* Views */,
 				84B9C9F32C7C84DE00D33773 /* MyTodoListApp.swift */,
-				84B9C9F52C7C84DE00D33773 /* ContentView.swift */,
 				84B9C9F72C7C84DF00D33773 /* Assets.xcassets */,
 				84B9C9FC2C7C84DF00D33773 /* MyTodoList.entitlements */,
 				84B9C9F92C7C84DF00D33773 /* Preview Content */,
+				843473B22C7DA9D30063CB68 /* Model */,
+				843473B92C7DBA340063CB68 /* AppDatabase.swift */,
+				843473BB2C7DBE620063CB68 /* Persistence.swift */,
 			);
 			path = MyTodoList;
 			sourceTree = "<group>";
@@ -85,6 +118,9 @@
 			dependencies = (
 			);
 			name = MyTodoList;
+			packageProductDependencies = (
+				843473B42C7DB2CE0063CB68 /* GRDBQuery */,
+			);
 			productName = MyTodoList;
 			productReference = 84B9C9F02C7C84DE00D33773 /* MyTodoList.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +149,9 @@
 				Base,
 			);
 			mainGroup = 84B9C9E72C7C84DE00D33773;
+			packageReferences = (
+				843473B32C7DB2CE0063CB68 /* XCRemoteSwiftPackageReference "GRDBQuery" */,
+			);
 			productRefGroup = 84B9C9F12C7C84DE00D33773 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B9CA032C7C9A2C00D33773 /* ItemNew.swift in Sources */,
+				843473BC2C7DBE620063CB68 /* Persistence.swift in Sources */,
 				84B9C9F62C7C84DE00D33773 /* ContentView.swift in Sources */,
+				843473B72C7DB4D00063CB68 /* AppView.swift in Sources */,
+				843473BA2C7DBA340063CB68 /* AppDatabase.swift in Sources */,
+				843473AE2C7DA9560063CB68 /* TodoItem.swift in Sources */,
 				84B9C9F42C7C84DE00D33773 /* MyTodoListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +385,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		843473B32C7DB2CE0063CB68 /* XCRemoteSwiftPackageReference "GRDBQuery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDBQuery";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		843473B42C7DB2CE0063CB68 /* GRDBQuery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 843473B32C7DB2CE0063CB68 /* XCRemoteSwiftPackageReference "GRDBQuery" */;
+			productName = GRDBQuery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84B9C9E82C7C84DE00D33773 /* Project object */;
 }
