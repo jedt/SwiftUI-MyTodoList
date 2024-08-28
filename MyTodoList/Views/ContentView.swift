@@ -15,6 +15,7 @@ struct ContentView: View {
     // where the value of the property becomes the result of the query
     @Query(TodoItemRequest()) private var todoItems: [TodoItem]
     
+    @State private var selectedTodoItem: TodoItem?
     @State private var detailText: String = "select an option"
     var body: some View {
         NavigationSplitView {
@@ -32,16 +33,22 @@ struct ContentView: View {
             }
             .padding()
         } content: {
-            // List View that stretch width
             VStack(alignment: .leading) {
                 List(todoItems) { todoItem in
-                    Text(todoItem.title)
+                    NavigationLink(
+                        destination: 
+                            ItemNew(todoItem: todoItem)
+                                .id(todoItem.id),
+                        label: {
+                            Text(todoItem.title)
+                        }
+                    )
                 }
             }
         } detail: {
             // Detail View that stretch width
             VStack(alignment: .leading) {
-                ItemNew()
+                Text("Select a Todo item to see details")
             }
         }
     }

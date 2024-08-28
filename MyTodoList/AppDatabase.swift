@@ -147,12 +147,12 @@ extension AppDatabase {
     
     /// Saves (inserts or updates) a todoItem. When the method returns, the
     /// player is present in the database, and its id is not nil.
-    func saveTodoItem(_ todoItem: inout TodoItem) throws {
+    func saveTodoItem(_ todoItem: inout TodoItem) async throws {
         if todoItem.title.isEmpty {
             throw ValidationError.missingName
         }
         
-        try dbWriter.write { [todoItem] db in
+        todoItem = try await dbWriter.write { [todoItem] db in
             try todoItem.saved(db)
         }
     }
@@ -163,6 +163,12 @@ extension AppDatabase {
     //        _ = try Player.deleteAll(db, ids: ids)
     //    }
     //}
+    
+    func deleteTodoItem(_ todoItem: inout TodoItem) throws {
+        try dbWriter.write { db in
+            try todoItem.delete(db)
+        }
+    }
     
     /// Delete all players
     //func deleteAllPlayers() async throws {

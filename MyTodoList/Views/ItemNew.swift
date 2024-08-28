@@ -15,6 +15,10 @@ struct ItemNew: View {
     @State private var title: String = ""
     @State private var description: String = ""
     
+    // Initialize a property that will store
+    // existing TodoItem for editing
+    var todoItem: TodoItem?
+    
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -29,15 +33,29 @@ struct ItemNew: View {
             Button(action: {
                 // saveTodoItem
                 Task {
-                    var todoItem = TodoItem(title: title, description: description)
-                    
-                    try appDatabase.saveTodoItem(&todoItem)
+                    if var existingItem = todoItem {
+                        existingItem.title = title
+                        existingItem.description = description
+                        // try appDatabase
+                        try await appDatabase.saveTodoItem(&existingItem)
+                    } else {
+                        var todoItem = TodoItem(title: title, description: description)
+                        try await appDatabase.saveTodoItem(&todoItem)
+                    }
                 }
             }, label: {
-                Text("Save New")
+                Text(todoItem == nil ? "Save New" : "Save Changes")
             })
         }
         .padding()
+        .navigationTitle(todoItem == nil ? "New Todo Item" : "Edit Todo Item")
+        .onAppear {
+            // Update the state variables when the view appears
+            if let todoItem = todoItem {
+                title = todoItem.title
+                description = todoItem.description ?? ""
+            }
+        }
     }
 }
 
@@ -55,5 +73,5 @@ extension TodoItemForm {
 
 
 #Preview {
-    ItemNew()
+    ItemNew(todoItem: TodoItem(title: "Sample Title", description: "Sample Description"))
 }
