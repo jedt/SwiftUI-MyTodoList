@@ -8,7 +8,7 @@ struct MyTodoListApp: App {
             // Persistence.swift
             // static let shared = makeShared()
             // makeShared() returns AppDatabase
-            AppView().appDatabase(.shared)
+            ContentView().appDatabase(.shared)
         }
     }
 }

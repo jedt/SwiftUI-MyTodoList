@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ItemNew: View {
+    // For write access to the database we
+    // the Environment wrapper enables you to
+    // access the databse from this view
+    @Environment(\.appDatabase) var appDatabase
     @State private var title: String = ""
     @State private var description: String = ""
     
@@ -19,11 +23,16 @@ struct ItemNew: View {
             }
             VStack(alignment: .leading) {
                 Text("Description")
-                TextField("Enter the description", text: $title)
+                TextField("Enter the description", text: $description)
             }
             Spacer()
             Button(action: {
-                print("save new")
+                // saveTodoItem
+                Task {
+                    var todoItem = TodoItem(title: title, description: description)
+                    
+                    try appDatabase.saveTodoItem(&todoItem)
+                }
             }, label: {
                 Text("Save New")
             })
@@ -31,6 +40,19 @@ struct ItemNew: View {
         .padding()
     }
 }
+
+struct TodoItemForm {
+    var title: String
+    var description: String
+}
+
+extension TodoItemForm {
+    init(_ todoItem: TodoItem) {
+        self.title = todoItem.title
+        self.description = todoItem.description ?? ""
+    }
+}
+
 
 #Preview {
     ItemNew()
